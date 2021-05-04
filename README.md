@@ -1,15 +1,16 @@
 # Project: Build a Traffic Sign Recognition Program
 
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive) 
+[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 ## Contents
 
 1. [Introdution](#introdution)
-2. [The Model](#the-model)
-3. [Result](#result)
-4. [Challenges](#challenges)
-5. [Conclusion](#conclusion)
-6. [Refernces](#refernces)
+2. [Dataset](#dataset)
+3. [The Model](#the-model)
+4. [Result](#result)
+5. [Challenges](#challenges)
+6. [Conclusion](#conclusion)
+7. [Refernces](#refernces)
 
 ---
 
@@ -29,7 +30,6 @@ The used data is a german traffic signs dataset. It consists of colour images.  
 We will use data augmentation. It will be using random rotation and horizontal flip.
 
 ![data augmentation](images/augmented_images.png)
-
 
 ---
 
@@ -63,7 +63,6 @@ I started with 30 epoc then increase it 50 epoc.
 ## Result
 
 After 50 epoc without agumentation and with 0.75 dropout. evalution accuracy is 92.9% and the loss value is 0.35.
-I also used google map to starting this location [4][4] in A95, Munich, Bavaria, Germany to search for reallive traffic signs to test my model. The accuracy for this new image is 0%.
 ***This values was tested on agument data 20 random rotationa and horizontal flip.***
 
 Follwoing table is some graphs for LeNet with diffrent presets I traied.
@@ -75,6 +74,27 @@ Follwoing table is some graphs for LeNet with diffrent presets I traied.
 | with 50 dropout | ![50 epoc with dropout 50](images/LenNet_with_dropout50_50.png) |
 | with 75 dropout | ![50 epoc with dropout 75](images/LenNet_with_dropout75_50.png) |
 | No agument with 25 dropout | ![no agm 50 epoc with dropout 75](images/LenNet_not_agm_with_dropout75_50.png) |
+
+### German traffic signs from online
+
+![GTSonline](images/captured_images.png)
+
+I also used google map to starting this location [4][4] in A95, Munich, Bavaria, Germany to search for reallive traffic signs to test my model.
+I used krita[5][5] open-source image editing tool to crop and resize images. The accuracy for this new image is 100%.
+
+#### The top five softmax probabilities for online images
+
+![i0](images/prop_image01.png)
+![i1](images/prop_image02.png)
+![i2](images/prop_image03.png)
+
+### Visualize activations
+
+I used the model to visualize the activation after layers.
+
+| | | |
+|:-:|:-:|:-:|
+| ![Input](images/TGS_07.jpg) | ![C1](images/C1_activation.png) | ![C2](images/C2_activation.png) |
 
 ---
 
@@ -91,6 +111,11 @@ The model overfits after 30 epoch. I tried to use Dropout with different value 0
 | 4 | 0.75 | 88.2 | 0.36 |
 | 4 | 0.75 & NoAgument | 92.9| 0.354 |
 
+
+### My thoughts
+
+I think I used easy test cases. The model will give better results if it used after the localization model.
+
 ---
 
 ## Conclusion
@@ -104,7 +129,12 @@ LeNet is a simple model. I give excellent accuracy which can be achieved with tr
 1. https://benchmark.ini.rub.de/
 2. https://direct.mit.edu/neco/article/1/4/541/5515/Backpropagation-Applied-to-Handwritten-Zip-Code
 3. https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf
+4. https://www.google.com/maps/place/A95,+Germany/@47.8427625,11.3724284,17z/data=!4m5!3m4!1s0x479dc7fa71105175:0x72ebf0a5736000a7!8m2!3d47.8427625!4d11.3746171
+5. https://krita.org/en/
 
 [1]: https://benchmark.ini.rub.de/
 [2]: https://direct.mit.edu/neco/article/1/4/541/5515/Backpropagation-Applied-to-Handwritten-Zip-Code
 [3]: https://www.cs.toronto.edu/~rsalakhu/papers/srivastava14a.pdf
+[4]: https://www.google.com/maps/place/A95,+Germany/@47.8427625,11.3724284,17z/data=!4m5!3m4!1s0x479dc7fa71105175:0x72ebf0a5736000a7!8m2!3d47.8427625!4d11.3746171
+[5]: https://krita.org/en/
+
